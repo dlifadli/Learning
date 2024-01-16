@@ -119,25 +119,29 @@ function tambah($data)
   return mysqli_affected_rows($conn);
 }
 
-function hapus($nim)
+function hapus($data)
 {
   $conn = koneksi();
 
   // menghapus gambar di folder img
-  $mhs = query("SELECT * FROM mahasiswa WHERE nim = '$nim'");
+  $mhs = query("SELECT * FROM mahasiswa WHERE nim = '$data'");
   if ($mhs['gambar'] != 'nophoto.jpg') {
     unlink('img/' . $mhs['gambar']);
   }
 
-  mysqli_query($conn, "DELETE FROM matkul WHERE nim = '$nim'");
-  mysqli_query($conn, "DELETE FROM nilai WHERE nim = '$nim'");
-  mysqli_query($conn, "DELETE FROM mahasiswa WHERE nim = '$nim'") or die(mysqli_error($conn));
+  mysqli_query($conn, "DELETE FROM matkul WHERE nim = '$data'");
+  mysqli_query($conn, "DELETE FROM nilai WHERE nim = '$data'");
+  mysqli_query($conn, "DELETE FROM mahasiswa WHERE nim = '$data'") or die(mysqli_error($conn));
   return mysqli_affected_rows($conn);
 }
 
 function ubah($data)
 {
   $conn = koneksi();
+
+  mysqli_query($conn, "DELETE FROM matkul WHERE nim = '$data'");
+  mysqli_query($conn, "DELETE FROM nilai WHERE nim = '$data'") or die(mysqli_error($conn));
+  return mysqli_affected_rows($conn);
 
   $id = $data['id'];
   $nama = htmlspecialchars($data['nama']);
@@ -160,7 +164,7 @@ function ubah($data)
   alamat = '$alamat',
   gender = '$gender',
   gambar = '$gambar'
-  WHERE id = $id";
+  WHERE id = '$id'";
   mysqli_query($conn, $query) or die(mysqli_error($conn));
 
   $id = $data['id'];
@@ -176,7 +180,7 @@ function ubah($data)
   semester = '$semester',
   urutan_matkul = '$urutan_matkul',
   jumlah_sks = '$jumlah_sks'
-  WHERE id = $id";
+  WHERE id = '$id'";
   mysqli_query($conn, $query1) or die(mysqli_error($conn));
 
   $id = $data['id'];

@@ -16,14 +16,15 @@ $mk = query("SELECT * FROM matkul WHERE nim = '$id'");
 $n = query("SELECT * FROM nilai WHERE nim = '$id'");
 
 // cek apakah tombol ubah sudah ditekan?
-if (isset($_POST["ubah"])) {
+if (isset($_POST['ubah'])) {
   if (ubah($_POST) > 0) {
     echo "<script>
     alert('Data Berhasil diubah');
     document.location.href = 'index.php';
     </script>";
   } else {
-    echo "data gagal diubah!";
+    echo "<script> alert('data gagal diubah');
+    </script>";
   }
 }
 ?>

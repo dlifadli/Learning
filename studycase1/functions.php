@@ -138,12 +138,7 @@ function hapus($data)
 function ubah($data)
 {
   $conn = koneksi();
-
-  mysqli_query($conn, "DELETE FROM matkul WHERE nim = '$data'");
-  mysqli_query($conn, "DELETE FROM nilai WHERE nim = '$data'") or die(mysqli_error($conn));
-  return mysqli_affected_rows($conn);
-
-  $id = $data['id'];
+  $id = htmlspecialchars($data['id']);
   $nama = htmlspecialchars($data['nama']);
   $tanggal_lahir = htmlspecialchars($data['tanggal_lahir']);
   $alamat = htmlspecialchars($data['alamat']);

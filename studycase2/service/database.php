@@ -69,3 +69,23 @@ function hapus($data)
   mysqli_query($conn, "DELETE FROM mahasiswa WHERE nim='$data';") or die(mysqli_error($conn));
   return mysqli_affected_rows($conn);
 }
+
+function cari($keyword)
+{
+  $conn = koneksi();
+  $query = "SELECT 
+  aa.nim, aa.nama, bb.jurusan
+        FROM mahasiswa aa
+        JOIN jurusan bb ON bb.id_jurusan = aa.jurusan
+        WHERE 
+        nim LIKE '%$keyword%' OR
+        nama LIKE '%$keyword%';";
+
+  $result = mysqli_query($conn, $query);
+
+  $rows = [];
+  while ($row = mysqli_fetch_assoc($result)) {
+    $rows[] = $row;
+  }
+  return $rows;
+}

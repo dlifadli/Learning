@@ -118,21 +118,23 @@ if (isset($_POST['edit'])) {
                       } ?> value="4">Belajar Dan Pembelajaran (2 Sks)</option>
             </select>
           </li>
-          <label for="mkp">Mata Kuliah Pilihan :</label>
-          <select required name="mkp" id="mkp">
-            <option <?php if ($m['mkp'] == 1) {
-                      echo "selected";
-                    } ?> value="1">IPS (4 Sks)</option>
-            <option <?php if ($m['mkp'] == 2) {
-                      echo "selected";
-                    } ?> value="2">MIPA (4 Sks)</option>
-            <option <?php if ($m['mkp'] == 3) {
-                      echo "selected";
-                    } ?> value="3">Bahasa Dan Budaya (3 Sks)</option>
-            <option <?php if ($m['mkp'] == 4) {
-                      echo "selected";
-                    } ?> value="4">Karya Kreatif (4 Sks)</option>
-          </select>
+          <li>
+            <label for="mkp">Mata Kuliah Pilihan :</label>
+            <select required name="mkp" id="mkp">
+              <option <?php if ($m['mkp'] == 1) {
+                        echo "selected";
+                      } ?> value="1">IPS (4 Sks)</option>
+              <option <?php if ($m['mkp'] == 2) {
+                        echo "selected";
+                      } ?> value="2">MIPA (4 Sks)</option>
+              <option <?php if ($m['mkp'] == 3) {
+                        echo "selected";
+                      } ?> value="3">Bahasa Dan Budaya (3 Sks)</option>
+              <option <?php if ($m['mkp'] == 4) {
+                        echo "selected";
+                      } ?> value="4">Karya Kreatif (4 Sks)</option>
+            </select>
+          </li>
           <li type="none">
             <button type="submit" name="edit">Edit Data!</button>
           </li>

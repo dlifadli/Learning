@@ -55,6 +55,7 @@ if (isset($_POST["tambah"])) {
             <option value="3">Matematika</option>
             <option value="4">Fisika</option>
             <option value="5">Kimia</option>
+            <option value="6">IPS</option>
           </select>
         </li>
         <li>
@@ -69,20 +70,36 @@ if (isset($_POST["tambah"])) {
             <input type="text" name="alamat" required placeholder="Ex: Depok">
           </label>
         </li>
-        <label for="gender">
-          Jenis Kelamin :
-        </label>
-        <select required name="gender" id="gender">
-          <option value="L">Laki-Laki</option>
-          <option value="P" selected>Perempuan</option>
-        </select>
         <li>
-          <label for="mku">Mata Kuliah Umum :</label>
-          <select required name="mku" id="mku">
-            <option value="1">Pendidikan Pancasila (3 Sks)</option>
-            <option value="2" selected>Agama (3 Sks)</option>
-            <option value="3">Bahasa Indonesia (3 Sks)</option>
-            <option value="4">Belajar Dan Pembelajaran (3 Sks)</option>
+          <label>
+            <input type="radio" name="gender" value="L" required>Laki-Laki
+          </label>
+          <label>
+            <input type="radio" name="gender" value="P" required>Perempuan
+          </label>
+        </li>
+        <li>
+          <label for="mku1">Mata Kuliah Umum 1 :</label>
+          <select required name="mku1" id="mku1">
+            <option value="1">Matematika (3 Sks)</option>
+            <option value="2">Agama (3 Sks)</option>
+            <option value="3">Pancasila (4 Sks)</option>
+          </select>
+        </li>
+        <li>
+          <label for="mku2">Mata Kuliah Umum 2 :</label>
+          <select required name="mku2" id="mku2">
+            <option value="1">Fisika (3 Sks)</option>
+            <option value="2">Bahasa Indonesia (3 Sks)</option>
+            <option value="3">Public Speaking (4 Sks)</option>
+          </select>
+        </li>
+        <li>
+          <label for="mku3">Mata Kuliah Umum 3 :</label>
+          <select required name="mku3" id="mku3">
+            <option value="1">Bahasa Inggris (3 Sks)</option>
+            <option value="2">Bahasa Arab (3 Sks)</option>
+            <option value="3">Bahasa Mandarin (4 Sks)</option>
           </select>
         </li>
         <li>

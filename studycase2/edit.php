@@ -41,12 +41,9 @@ if (isset($_POST['edit'])) {
     <div class="form">
       <form action="" method="post" enctype="multipart/form-data">
         <ul>
-          <li>
-            <label>
-              NIM :
-              <input type="text" name="nim" required value="<?= $m['nim']; ?>" size="7">
-            </label>
-          </li>
+          <label>
+            <input type="hidden" name="nim" value="<?= $m['nim']; ?>">
+          </label>
           <li>
             <label>
               Nama :
@@ -88,34 +85,57 @@ if (isset($_POST['edit'])) {
             </label>
           </li>
           <li>
-            <label for="gender">
-              Jenis Kelamin :
+            <label>
+              <input type="radio" <?php if ($m['gender'] == 'L') {
+                                    echo "checked";
+                                  } ?> name="gender" value="L" required>Laki-Laki
             </label>
-            <select required value="<?= $m['gender']; ?>" name="gender" id="gender">
-              <option <?php if ($m['gender'] == 'L') {
-                        echo "selected";
-                      } ?> value="Laki-Laki">Laki-Laki</option>
-              <option <?php if ($m['gender'] == 'P') {
-                        echo "selected";
-                      } ?> value="Perempuan">Perempuan</option>
-            </select>
-
+            <label>
+              <input type="radio" <?php if ($m['gender'] == 'P') {
+                                    echo "checked";
+                                  } ?> name="gender" value="P" required>Perempuan
+            </label>
           </li>
           <li>
-            <label for="mku">Mata Kuliah Umum :</label>
-            <select required name="mku" id="mku">
-              <option <?php if ($m['mku'] == 1) {
+            <label for="mku1">Mata Kuliah Umum 1 :</label>
+            <select required name="mku1" id="mku1">
+              <option <?php if ($m['mku1'] == 1) {
                         echo "selected";
-                      } ?> value="1">Pendidikan Pancasila (3 Sks)</option>
-              <option <?php if ($m['mku'] == 2) {
+                      } ?> value="1">Matematika (3 Sks)</option>
+              <option <?php if ($m['mku1'] == 2) {
                         echo "selected";
                       } ?> value="2">Agama (3 Sks)</option>
-              <option <?php if ($m['mku'] == 3) {
+              <option <?php if ($m['mku1'] == 3) {
                         echo "selected";
-                      } ?> value="3">Bahasa Indonesia (3 Sks)</option>
-              <option <?php if ($m['mku'] == 4) {
+                      } ?> value="3">Pancasila (4 Sks)</option>
+            </select>
+          </li>
+          <li>
+            <label for="mku2">Mata Kuliah Umum 2 :</label>
+            <select required name="mku2" id="mku2">
+              <option <?php if ($m['mku2'] == 1) {
                         echo "selected";
-                      } ?> value="4">Belajar Dan Pembelajaran (2 Sks)</option>
+                      } ?> value="1">Fisika (3 Sks)</option>
+              <option <?php if ($m['mku2'] == 2) {
+                        echo "selected";
+                      } ?> value="2">Bahasa indonesia (3 Sks)</option>
+              <option <?php if ($m['mku2'] == 3) {
+                        echo "selected";
+                      } ?> value="3">Public Speaking (4 Sks)</option>
+            </select>
+          </li>
+          <li>
+            <label for="mku3">Mata Kuliah Umum 3 :</label>
+            <select required name="mku3" id="mku3">
+              <option <?php if ($m['mku3'] == 1) {
+                        echo "selected";
+                      } ?> value="1">Bahasa Inggris (3 Sks)</option>
+              <option <?php if ($m['mku3'] == 2) {
+                        echo "selected";
+                      } ?> value="2">Bahasa Arab (3 Sks)</option>
+              <option <?php if ($m['mku3'] == 3) {
+                        echo "selected";
+                      } ?> value="3">Bahasa Mandarin (4 Sks)</option>
             </select>
           </li>
           <li>

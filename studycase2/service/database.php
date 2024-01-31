@@ -26,13 +26,15 @@ function tambah($data)
   $tanggal_lahir = htmlspecialchars($data['tanggal_lahir']);
   $alamat = htmlspecialchars($data['alamat']);
   $gender = htmlspecialchars($data['gender']);
-  $mku = htmlspecialchars($data['mku']);
+  $mku1 = htmlspecialchars($data['mku1']);
+  $mku2 = htmlspecialchars($data['mku2']);
+  $mku3 = htmlspecialchars($data['mku3']);
   $mkp = htmlspecialchars($data['mkp']);
 
   $query = "INSERT INTO
   mahasiswa
   VALUES
-  ('$nim', '$nama', '$jurusan', '$tanggal_lahir', '$alamat', '$gender', '$mku', '$mkp')";
+  ('$nim', '$nama', '$jurusan', '$tanggal_lahir', '$alamat', '$gender', '$mku1', '$mku2', '$mku3', '$mkp')";
   mysqli_query($conn, $query) or die(mysqli_error($conn));
   return mysqli_affected_rows($conn);
 }
@@ -46,7 +48,9 @@ function edit($data)
   $tanggal_lahir = htmlspecialchars($data['tanggal_lahir']);
   $alamat = htmlspecialchars($data['alamat']);
   $gender = htmlspecialchars($data['gender']);
-  $mku = htmlspecialchars($data['mku']);
+  $mku1 = htmlspecialchars($data['mku1']);
+  $mku2 = htmlspecialchars($data['mku2']);
+  $mku3 = htmlspecialchars($data['mku3']);
   $mkp = htmlspecialchars($data['mkp']);
 
   $query = "UPDATE mahasiswa SET
@@ -56,7 +60,9 @@ function edit($data)
   tanggal_lahir='$tanggal_lahir',
   alamat='$alamat',
   gender='$gender',
-  mku='$mku',
+  mku1='$mku1',
+  mku2='$mku2',
+  mku3='$mku3',
   mkp='$mkp'
   WHERE nim='$nim';";
   mysqli_query($conn, $query);

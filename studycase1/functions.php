@@ -138,7 +138,7 @@ function hapus($data)
 function ubah($data)
 {
   $conn = koneksi();
-  $id = htmlspecialchars($data['id']);
+  $nim = htmlspecialchars($data['idd']);
   $nama = htmlspecialchars($data['nama']);
   $tanggal_lahir = htmlspecialchars($data['tanggal_lahir']);
   $alamat = htmlspecialchars($data['alamat']);
@@ -159,37 +159,37 @@ function ubah($data)
   alamat = '$alamat',
   gender = '$gender',
   gambar = '$gambar'
-  WHERE id = '$id'";
+  WHERE nim = '$nim'";
   mysqli_query($conn, $query) or die(mysqli_error($conn));
-
-  $id = $data['id'];
-  $nim = $data['nim'];
-  $nama_matkul = htmlspecialchars($data['nama_matkul']);
-  $semester = htmlspecialchars($data['semester']);
-  $urutan_matkul = htmlspecialchars($data['urutan_matkul']);
-  $jumlah_sks = htmlspecialchars($data['jumlah_sks']);
-  $query1 = "UPDATE matkul SET
-  id = '$id',
-  nim = '$nim',
-  nama_matkul = '$nama_matkul',
-  semester = '$semester',
-  urutan_matkul = '$urutan_matkul',
-  jumlah_sks = '$jumlah_sks'
-  WHERE id = '$id'";
-  mysqli_query($conn, $query1) or die(mysqli_error($conn));
-
-  $id = $data['id'];
-  $nim = $data['nim'];
-  $uts = htmlspecialchars($data['uts']);
-  $uas = htmlspecialchars($data['uas']);
-  $query2 = "UPDATE nilai SET
-  id = '$id',
-  nim = '$nim',
-  uts = '$uts',
-  uas = '$uas',
-  WHERE id = $id";
-  mysqli_query($conn, $query2) or die(mysqli_error($conn));
   return mysqli_affected_rows($conn);
+
+  // $id = $data['id'];
+  // $nim = $data['nim'];
+  // $nama_matkul = htmlspecialchars($data['nama_matkul']);
+  // $semester = htmlspecialchars($data['semester']);
+  // $urutan_matkul = htmlspecialchars($data['urutan_matkul']);
+  // $jumlah_sks = htmlspecialchars($data['jumlah_sks']);
+  // $query1 = "UPDATE matkul SET
+  // id = '$id',
+  // nim = '$nim',
+  // nama_matkul = '$nama_matkul',
+  // semester = '$semester',
+  // urutan_matkul = '$urutan_matkul',
+  // jumlah_sks = '$jumlah_sks'
+  // WHERE id = '$id'";
+  // mysqli_query($conn, $query1) or die(mysqli_error($conn));
+
+  // $id = $data['id'];
+  // $nim = $data['nim'];
+  // $uts = htmlspecialchars($data['uts']);
+  // $uas = htmlspecialchars($data['uas']);
+  // $query2 = "UPDATE nilai SET
+  // id = '$id',
+  // nim = '$nim',
+  // uts = '$uts',
+  // uas = '$uas',
+  // WHERE id = $id";
+  // mysqli_query($conn, $query2) or die(mysqli_error($conn));
 }
 
 function cari($keyword)

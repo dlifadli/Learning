@@ -5,12 +5,13 @@ if (!isset($_GET['id'])) {
   exit;
 }
 $id = $_GET['id'];
-$mahasiswa = query("SELECT aa.nim, aa.nama, bb.jurusan, aa.tanggal_lahir, aa.alamat, aa.gender, cc.mku, cc.sks_mku, dd.mkp, dd.sks_mkp
+$mahasiswa = query("SELECT aa.nim, aa.nama, bb.jurusan, aa.tanggal_lahir, aa.alamat, aa.gender, cc.mku1, cc.sks_mku1, dd.mku2, dd.sks_mku2, ee.mku3, ee.sks_mku3, ff.mkp, ff.sks_mkp
 FROM mahasiswa aa
-JOIN jurusan bb 
-ON aa.jurusan = bb.id_jurusan
-JOIN mata_kuliah_umum cc ON cc.id_mku = aa.mku
-JOIN mata_kuliah_pilihan dd ON dd.id_mkp = aa.mkp WHERE nim = $id;");
+JOIN jurusan bb ON aa.jurusan = bb.id_jurusan
+JOIN mata_kuliah_umum1 cc ON cc.id_mku1 = aa.mku1
+JOIN mata_kuliah_umum2 dd ON dd.id_mku2 = aa.mku2
+JOIN mata_kuliah_umum3 ee ON ee.id_mku3 = aa.mku3
+JOIN mata_kuliah_pilihan ff ON ff.id_mkp = aa.mkp WHERE nim = $id;");
 
 ?>
 <!DOCTYPE html>
@@ -49,7 +50,7 @@ JOIN mata_kuliah_pilihan dd ON dd.id_mkp = aa.mkp WHERE nim = $id;");
           Alamat : <?= $m['alamat']; ?>
         </li>
         <li>
-          Jenis Kelamin : <?php if ($m['gender'] == "L") {
+          Jenis Kelamin : <?php if ($m['gender'] == 'L') {
                             echo "Laki-Laki";
                           } else {
                             echo "Perempuan";
@@ -57,7 +58,13 @@ JOIN mata_kuliah_pilihan dd ON dd.id_mkp = aa.mkp WHERE nim = $id;");
                           ?>
         </li>
         <li>
-          Mata Kuliah Umum : <?= $m['mku']; ?> (<?= $m['sks_mku']; ?> Sks)
+          Mata Kuliah Umum 1 : <?= $m['mku1']; ?> (<?= $m['sks_mku1']; ?> Sks)
+        </li>
+        <li>
+          Mata Kuliah Umum 2 : <?= $m['mku2']; ?> (<?= $m['sks_mku2']; ?> Sks)
+        </li>
+        <li>
+          Mata Kuliah Umum 3 : <?= $m['mku3']; ?> (<?= $m['sks_mku3']; ?> Sks)
         </li>
         <li>
           Mata Kuliah Pilihan : <?= $m['mkp']; ?> (<?= $m['sks_mkp']; ?> Sks)

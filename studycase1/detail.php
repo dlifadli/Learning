@@ -52,7 +52,7 @@ $mk = query("SELECT * FROM matkul WHERE nim = '$id'");
       <li>Mata Kuliah : <?= $mk['nama_matkul']; ?></li>
       <li>Semester : <?= $mk['semester']; ?> | Jumlah Sks : <?= $mk['jumlah_sks']; ?></li>
       <li>Urutan Mata Kuliah ke-<?= $mk['urutan_matkul']; ?></li>
-      <!-- <li><a href="ubah.php?id=<?= $m['nim']; ?>">Ubah</a></li> -->
+      <li><a href="ubah.php?id=<?= $m['nim']; ?>">Ubah</a></li>
       <li><a href="hapus.php?id=<?= $m['nim']; ?>" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus?');">Hapus</a></li>
       <li><a href="index.php">Kembali</a></li>
     </ul>

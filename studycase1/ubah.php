@@ -11,7 +11,9 @@ if (!isset($_GET['id'])) {
 $id = $_GET['id'];
 
 // query mahasiswa berdasarkan id
-$m = query("SELECT * FROM mahasiswa WHERE nim = '$id'");
+$mahasiswa = query("SELECT * FROM mahasiswa WHERE nim = '$id'");
+// var_dump($mahasiswa);
+// die();
 $mk = query("SELECT * FROM matkul WHERE nim = '$id'");
 $n = query("SELECT * FROM nilai WHERE nim = '$id'");
 
@@ -51,47 +53,58 @@ if (isset($_POST['ubah'])) {
   <form action="" method="post" enctype="multipart/form-data" class="form-ubah">
     <table border="0" cellspacing="0" cellpadding="5">
       <ul>
-        <tr>
-          <td>
-            <li>NIM : <?= $m['nim']; ?></li>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <li>
-              <label>Nama :
-                <input type="text" name="nama" autofocus required value="<?= $m['nama']; ?>">
+        <?php foreach ($mahasiswa as $m) : ?>
+          <tr>
+            <td>
+              <label>
+                <input type="hidden" name="idd" value="<?= $m['id']; ?>">
               </label>
-            </li>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <li>
-              <label>Tanggal Lahir :
-                <input type="text" size="7" name="tanggal_lahir" required value="<?= $m['tanggal_lahir']; ?>">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>
+                <input type="hidden" name="nim" value="<?= $m['nim']; ?>">
               </label>
-            </li>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <li>
-              <label>Alamat :
-                <input type="text" name="alamat" required value="<?= $m['alamat']; ?>">
-              </label>
-            </li>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <li>
-              <label>Jenis Kelamin :
-                <input type="text" name="gender" size="1" required value="<?= $m['gender']; ?>">
-              </label>
-            </li>
-          </td>
-        </tr>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <li>
+                <label>Nama :
+                  <input type="text" name="nama" autofocus required value="<?= $m['nama']; ?>">
+                </label>
+              </li>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <li>
+                <label>Tanggal Lahir :
+                  <input type="text" size="7" name="tanggal_lahir" required value="<?= $m['tanggal_lahir']; ?>">
+                </label>
+              </li>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <li>
+                <label>Alamat :
+                  <input type="text" name="alamat" required value="<?= $m['alamat']; ?>">
+                </label>
+              </li>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <li>
+                <label>Jenis Kelamin :
+                  <input type="text" name="gender" size="1" required value="<?= $m['gender']; ?>">
+                </label>
+              </li>
+            </td>
+          </tr>
+        <?php endforeach ?>
         <tr>
           <td>
             <li>
